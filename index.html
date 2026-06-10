@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DESA Security</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #3f464e;
+      min-width: 800px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #wrapper { min-width: 800px; }
+
+    #header {
+      background-color: #8c929a;
+      padding-top: 11px;
+      overflow: hidden;
+    }
+
+    #logo {
+      width: 300px;
+      height: 87px;
+      display: block;
+      float: left;
+      border: none;
+    }
+
+    #middle {
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    #nav {
+      width: 300px;
+      float: left;
+    }
+
+    #nav ul { list-style: none; }
+    #nav li { display: block; }
+
+    #nav img {
+      display: block;
+      margin-top: -2px;
+      margin-bottom: -2px;
+      border: none;
+    }
+
+    #nav li a { display: block; outline: none; }
+    #nav li a img {
+      width: 299px;
+      height: 48px;
+      border: none;
+    }
+
+    #nav li.nav-active a img {
+      outline: 3px solid #069;
+      outline-offset: -3px;
+    }
+
+    #holder {
+      float: left;
+      min-height: 400px;
+    }
+
+    /* Page sections */
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* Sub-sections */
+    .sub-section { display: none; }
+    .sub-section.active { display: block; }
+
+    /* Content area */
+    .content-area {
+      font-size: 13px;
+      line-height: 18px;
+      color: #666;
+      padding-left: 70px;
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 30px;
+      width: 480px;
+      min-height: 350px;
+    }
+
+    .content-area a,
+    .content-area a:link,
+    .content-area a:visited { color: #006699; text-decoration: underline; }
+    .content-area a:hover   { color: #000099; text-decoration: underline; }
+
+    .content-area > p { margin-top: 1.5em; }
+
+    h2 { color: #069; font-size: 15px; margin-bottom: 0.5em; }
+    h3 { color: #069; font-size: 14px; }
+    h4 { color: #069; font-size: 13px; }
+
+    .subsection { padding-bottom: 3em; }
+    .subsection p  { margin-top: 0.8em; margin-right: 5px; }
+    .subsection h3 { margin-top: 1em; border-bottom: 1px solid #dde; padding-bottom: 2px; }
+    .subsection h4 { margin-top: 0.8em; }
+    .subsection ul { padding-left: 2em; margin-top: 0.5em; }
+    .subsection li { margin-bottom: 0.3em; }
+    .sub-sub-section { padding-left: 10px; }
+
+    /* Publications */
+    .publication h3 {
+      border-bottom: 1px solid #069;
+      color: #069;
+      text-align: right;
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+    }
+    .publication h4 { font-size: 12px; margin-bottom: 8px; }
+    .publication p  { margin-top: 0.8em; }
+    .publication-more { text-align: right; display: block; margin-top: 8px; }
+    .publication-more a { color: #069; text-decoration: underline; }
+
+    .back-link { margin-bottom: 1em; }
+    .back-link a { color: #069; }
+
+    /* ---- Solutions sub-nav (CSS buttons, no images) ---- */
+    #subnav {
+      padding-left: 70px;
+      padding-top: 8px;
+      padding-bottom: 4px;
+      background: #fff;
+    }
+    #subnav ul { list-style: none; }
+    #subnav li { display: inline; margin-right: 3px; }
+
+    .subnav-btn {
+      display: inline-block;
+      width: 120px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+      vertical-align: bottom;
+      background: #8c929a;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .subnav-btn:hover { background: #6e757c; color: #fff; text-decoration: none; }
+    #subnav li.subnav-active .subnav-btn { background: #006699; color: #fff; }
+
+    /* Captioned images */
+    .captioned-image {
+      display: inline-block;
+      text-align: center;
+      margin: 12px 8px;
+      vertical-align: top;
+    }
+    .captioned-image img { border: 1px solid #ccc; }
+    .caption {
+      display: block;
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    #footer {
+      clear: both;
+      padding-top: 2em;
+      padding-bottom: 2em;
+      margin-left: 15%;
+      margin-right: 25%;
+      font-size: .65em;
+      color: #E2E4E6;
+      overflow: hidden;
+    }
+
+    #footer-info { float: right; }
+    #footer a { color: #e3e4e6; }
+    #footer a:hover { color: #069; text-decoration: none; }
+
+    #footer-links {
+      padding-left: 7em;
+      color: #E2E4E6;
+      float: left;
+    }
+    #footer-links ul { list-style: none; }
+    #footer-links li { display: inline; }
+    #footer-links a,
+    #footer-links a:link,
+    #footer-links a:visited { color: #E2E4E6; text-decoration: none; }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+
+  <div id="header">
+    <a href="#" onclick="showSection('home'); return false;">
+      <img id="logo" src="images/logo.gif" alt="DESA Security">
+    </a>
+  </div>
+
+  <div id="middle">
+    <div id="nav">
+      <img src="images/logo_reflection.png" alt="" style="width:300px; display:block;">
+      <ul id="mouseovers">
+        <li id="nav-li-profile">
+          <a href="#" onclick="showSection('profile'); return false;">
+            <img src="images/profile_off.gif" alt="Profile">
+          </a>
+        </li>
+        <li id="nav-li-team">
+          <a href="#" onclick="showSection('team'); return false;">
+            <img src="images/team_off.gif" alt="Team">
+          </a>
+        </li>
+        <li id="nav-li-solutions">
+          <a href="#" onclick="showSection('solutions'); return false;">
+            <img src="images/solutions_off.gif" alt="Solutions">
+          </a>
+        </li>
+        <li id="nav-li-news">
+          <a href="#" onclick="showSection('news'); return false;">
+            <img src="images/news_off.gif" alt="News">
+          </a>
+        </li>
+        <li id="nav-li-publications">
+          <a href="#" onclick="showSection('publications'); return false;">
+            <img src="images/publications_off.gif" alt="Publications">
+          </a>
+        </li>
+      </ul>
+      <img src="images/nav_bottom.png" alt="" style="width:300px; display:block;">
+    </div><!-- /#nav -->
+
+    <div id="holder">
+
+      <!-- ===== HOME ===== -->
+      <div id="section-home" class="page-section active">
+        <div class="content-area">
+          <p>Digital Enterprise Security Associates (DESA) was founded in 2004 to support the increasing demand and opportunities in information assurance consulting services, research, and development. DESA understands that network and data protection requires continuous improvements in response to changing technologies and threats.</p>
+          <p>Understanding the nature and severity of threats is critical for effective prevention and response. DESA provides network administrators and security professionals with tools to measure risk and devise remediation plans. DESA&rsquo;s expert digital security team can assist you in determining what your individual company needs are to help you make an informed decision.</p>
+        </div>
+      </div>
+
+      <!-- ===== PROFILE ===== -->
+      <div id="section-profile" class="page-section">
+        <div class="content-area">
+          <div class="subsection">
+            <p>Digital Enterprise Security Associates (DESA, Inc.) is an innovative leader in information assurance, consulting and product development. Headquartered in Tulsa, Oklahoma, DESA delivers industry leading processes, practices, and expertise to a variety of private and public organizations both locally and nationally. DESA is continuously improving and responding to evolving technology and is a leader in cutting-edge research. DESA employs highly trained security professionals with expertise in research, development and implementation to offer our clients superior products and services.</p>
+            <h3>Management</h3>
+            <ul>
+              <li>Dr. Jerald Dawkins, President and CEO</li>
+              <li>Dominic Schulte, Senior Security Analyst</li>
+              <li>Brett Edgar, Senior Security Analyst</li>
+            </ul>
+            <h3>Certifications</h3>
+            <ul>
+              <li>CISSP: Certified Information Systems Security Professional</li>
+              <li>NSA IAM: INFOSEC Assessment Methodology Certified</li>
+              <li>CNSS 4011: Information Security Professional</li>
+              <li>CNSS 4012: Designated Approving Authority</li>
+              <li>CNSS 4013: Administration in Information Systems Security</li>
+              <li>CNSS 4014: Information Systems Security Officer</li>
+              <li>CNSS 4015: Systems Certifier</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TEAM ===== -->
+      <div id="section-team" class="page-section">
+        <div class="content-area">
+
+          <div class="subsection">
+            <h3>Jerald Dawkins, Ph.D., CISSP, NSA IAM, CNSS 4011,4012,4013,4014,4015</h3>
+            <p>Dr. Dawkins is the Founder and CEO of DESA. Dr. Dawkins has published over twenty publications in information assurance and has provided security briefings to both private and governmental organizations. He brings an extensive background in security research and development and in the execution of top-level projects and programs in major companies and organizations. During his tenure at the University of Tulsa, Dr. Dawkins led the Enterprise Security Research (ESG) team and laboratory while receiving his M.S. and Ph.D. in Computer Science. His research, funded by the National Security Agency, focused on multi-stage attack analysis (next generation penetration testing techniques) and an advanced quantitative assessment methodology that he now brings to the private sector.</p>
+          </div>
+
+          <div class="subsection">
+            <h3>Dominic Schulte, CISSP, CNSS 4011,4012,4013,4014,4015</h3>
+            <p>Mr. Schulte is a Senior Security Analyst at DESA. He has lead major regulatory audits, vulnerability scans and penetration tests. He has worked with the National Security Agency (NSA) as a Global Network Exploitation and Vulnerability Analyst in the National Security Incident and Response Center (NSIRC). Mr. Schulte has also served as a team member in the Network Intrusion Analysis Division (NIAD) of the NSIRC. Mr. Schulte holds a B.S. and M.S. in Computer Science from the University of Tulsa.</p>
+          </div>
+
+          <div class="subsection">
+            <h3>Brett Edgar, CNSS 4011,4012,4013,4014,4015</h3>
+            <p>Mr. Edgar serves as a Senior Security Analyst at DESA. He has extensive experience and training in computer and network forensics and information assurance. Mr. Edgar has worked with the National Security Agency as a Global Network Exploitation and Vulnerability Analyst. He has also served with the Federal Bureau of Investigation preparing background information on Firewalls and Intrusion Detection System. He researched and revised classified project planning proposals and has performed numerous digital vulnerability assessments. Mr. Edgar holds a B.S. from the University of Tulsa in Computer Science and several certificates from the SANS Institute.</p>
+          </div>
+
+          <div class="subsection">
+            <h3>Amy Serrata</h3>
+            <p>Mrs. Serrata is the Director of Marketing Public Relations for DESA. She establishes the overall marketing strategy and implementation, client communications, marketing communications, and public relations. Amy holds a B.A.A.S in Public Relations and Public Administration from the University of North Texas. Her training includes a prestigious internship with the Public Relations Department at Southwest Airlines. Additionally, Mrs. Serrata has lead community and regional marketing and public relations projects with the American Red Cross, March of Dimes and the Lazy E Arena. She is also a co-founder of Heartland Lab Rescue, Inc., an all volunteer, non-profit organization that rescues and rehabilitates Labrador retrievers that have been abandoned, abused or are just unwanted.</p>
+          </div>
+
+          <div class="subsection">
+            <h3>Dawn Schulte, CNSS 4011, 4012, 4013, 4014, 4015</h3>
+            <p>Mrs. Schulte serves as a Security Analyst at DESA. Her wide range of experience includes security testing, training, risk assessments as well as work involving policy and procedure analysis. She has worked with the National Security Agency as an Information Systems Security Engineer. Mrs. Schulte holds a B.S. from the University of Tulsa in Computer Science.</p>
+          </div>
+
+          <div class="subsection">
+            <h3>Michael Oglesby, CNSS 4011, 4012, 4013, 4014, 4015</h3>
+            <p>Mr. Oglesby serves as a Software Security Scientist at DESA. He has extensive experience designing and implementing security software and protocols. Mr. Oglesby has worked with Pacific Northwest National Laboratory in developing new secure SCADA protocols for the nation&rsquo;s power grid and cutting edge information visualization software. He has studied hacker techniques and has competed in top ranked security competitions. Mr. Oglesby holds a B.S. from Oral Roberts University and an M.S. from the University of Tulsa in Computer Science.</p>
+          </div>
+
+          <div class="subsection">
+            <h4>Interns</h4>
+            <ul>
+              <li>Cody Pollet</li>
+              <li>Stephen Tyree</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== SOLUTIONS ===== -->
+      <div id="section-solutions" class="page-section">
+
+        <div id="subnav">
+          <ul>
+            <li id="subnav-li-netmon" class="subnav-active">
+              <a href="#" class="subnav-btn" onclick="showSubSection('netmon'); return false;">Network Monitoring</a>
+            </li>
+            <li id="subnav-li-assessments">
+              <a href="#" class="subnav-btn" onclick="showSubSection('assessments'); return false;">Security Assessment</a>
+            </li>
+            <li id="subnav-li-pci">
+              <a href="#" class="subnav-btn" onclick="showSubSection('pci'); return false;">PCI Compliance</a>
+            </li>
+            <li id="subnav-li-training">
+              <a href="#" class="subnav-btn" onclick="showSubSection('training'); return false;">Security Training</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="content-area">
+
+          <!-- Network Monitoring -->
+          <div id="sub-netmon" class="sub-section active">
+            <div class="subsection">
+              <h2>Network Monitoring</h2>
+              <div class="sub-sub-section">
+                <h4>Incident Monitoring:</h4>
+                <p>While Intrusion Detection Systems (IDSs) are imperative for today&rsquo;s high-tech businesses, they prove to be a challenge for IT personnel. Not only are these devices time consuming to monitor, but they require a great deal of skill and aptitude to configure, analyze, and respond to intrusive behavior.</p>
+                <p>DESA&rsquo;s Incident Monitoring Solution will provide complete protection against your web services. Eliminating false-positives and correlating intrusive behaviors, DESA&rsquo;s security analysts will:</p>
+                <ul>
+                  <li>Go beyond just alerting to intrusive behavior and provide attacker profiling and remediation support.</li>
+                  <li>Can distinguish between typical script-kiddies, directed assaults, and potential malicious insider activity.</li>
+                  <li>Adversarial tacking and response.</li>
+                  <li>Provide a summary report concerning potential attackers, current threats against protected services, and suggested mitigation strategies to ensure up-time.</li>
+                </ul>
+                <h4>What is unique to DESA&rsquo;s service?</h4>
+                <p>DESA provides full timeframe-based packet captures for comprehensive coverage and post incident analysis. In addition, our proprietary Network Packet Processor technology provides packet and session based analysis to each alert, giving analysts the information they need to make well-informed decisions.</p>
+
+                <div class="captioned-image">
+                  <a href="images/realtimealert.png" title="View full size">
+                    <img src="images/realtimealert.thumb.png" alt="Real-time Alerts" width="245" height="192">
+                  </a>
+                  <span class="caption">Real-time Alerts</span>
+                </div>
+                <div class="captioned-image">
+                  <img src="images/incidentanalysis.thumb.png" alt="Incident Analysis" width="302" height="193">
+                  <span class="caption">Incident Analysis</span>
+                </div>
+                <div class="captioned-image">
+                  <img src="images/samplereport.thumb.png" alt="Sample Monthly Report" width="252" height="194">
+                  <span class="caption">Sample Monthly Report</span>
+                </div>
+              </div>
+
+              <h3>Active Response:</h3>
+              <p>Active Response complements Security Monitoring by allowing DESA to provide quick, effective changes on an enterprise&rsquo;s security perimeter, while allowing organizations to retain control of their core IT security.</p>
+            </div>
+          </div>
+
+          <!-- Security Assessment -->
+          <div id="sub-assessments" class="sub-section">
+            <div class="subsection">
+              <h2>Security Assessment and Penetration Testing</h2>
+                <a href="images/assessments.thumb.png" title="View full size">
+                  <img src="images/assessments.thumb.png" style="float:right;padding-top:40px;margin-left:10px;" width="224" height="151" alt="Security Assessment">
+                </a>
+
+              <h3>External Security Assessment:</h3>
+              <p>DESA conducts external network assessment and penetration tests using the best practice methodology and industry standard tools. These tests are conducted by highly experienced staff members who have earned a variety of federally and industry recognized security certifications.</p>
+
+              <h3>Internal Security Assessment:</h3>
+              <p>DESA will precisely identify and enumerate points of vulnerability from the viewpoint of an internal trusted user, the associated security risks, and information on corrective actions. On designated systems, DESA can test for operating system-level vulnerabilities, access control, password strength and more. DESA employs and utilizes multiple tools for server and workstation testing.</p>
+
+              <h3>Quantitative Risk Analysis:</h3>
+              <p>From information gathered and correlated from interviews as well as manual and automated processes, computational network models will be formulated that describe the organization&rsquo;s network. This quantitative technique accurately assesses the impact of vulnerabilities on a given system given its unique business function. This information allows ranking by severity not only for vulnerabilities but logical systems based on their relative importance to the organization and the potential for compromise.</p>
+
+              <h3>Standards-Based Quantitative Analysis:</h3>
+              <p>DESA has qualified personnel with experience performing IT audits using numerous standards, including ISO 17799, COBIT, OCTAVE, and PCI. DESA can apply these standards to accurately determine regulatory compliance with various laws and industry regulations including HIPPA, SOX, GLBA, and NERC.</p>
+
+              <h3>Security&rsquo;s in the process:</h3>
+              <p>DESA strives to maintain the confidentiality and integrity of our customer&rsquo;s sensitive data throughout the assessment process. In addition, each report is digitally signed after it is created to ensure integrity throughout its lifespan. Customers are provided secure access to the report via encrypted email or a password-protected, SSL-enabled Project Portal.</p>
+              <p>Minimizing Customer Impact: DESA enforces strict controls on the scanning application to ensure minimal bandwidth utilization. Specifically, DESA limits the number of hosts that can be scanned in parallel and the total number of processes that can be active. Additionally, packet (burst) delay is enforced.</p>
+              <p>Reporting and Presentations: DESA delivers executive level and engineering reports and presentations that provide compressive and detailed guidance for remediation and security program improvement. Vulnerabilities are identified, prioritized and justified based on risk management plans, best practices and regulatory requirements.</p>
+              <p>Project Portal: DESA commits to engaging the customer for the duration of the project activities. To support this, DESA deploys a Project Portal that provides secure Internet access to project members. The Project Portal, combined with face-to-face collaboration with the customer, provides a highly effective skills and knowledge transfer mechanism. This Project Portal is a key tool for managing the project and ensuring that the customer is fully informed on project progress and has ready access to project deliverables. It provides a centralized repository for contact names, key project milestones, questions and answers, as well as serving highly secure access to raw data and reports.</p>
+              <p>To find out how DESA can specialize a security solution for you, please contact us at <a href="mailto:info@desasecurity.com">info@desasecurity.com</a> or call us at 866.430.2595.</p>
+            </div>
+          </div>
+
+          <!-- PCI Compliance -->
+          <div id="sub-pci" class="sub-section">
+            <div class="subsection">
+              <h2>PCI Compliance</h2>
+              <p>DESA, Inc. is a PCI approved vendor that offers a comprehensive and easy to use service to help you achieve compliance with the Payment Card Industry (PCI) Data Security Standard. Compliance under the PCI standard may include some or all of the following: onsite reviews, security self-assessments, and security scans.</p>
+              <p>DESA will help you identify the hosts that are required to be scanned and work with you in setting a scanning schedule up to four scans in advance to minimize your burden throughout the process. Once the initial scanning process is complete, DESA will analyze the results, formulate the report, and send you a preliminary for review. This preliminary report is intended to notify you of any issues prior to final report generation. We pledge to work closely with you throughout the resolution and remediation process. Once the required fixes are in place, we will schedule another scan to verify their success and issue the final report validating your compliance under the scanning requirements of the PCI Data Security Standard.</p>
+              <p>For more information about how DESA can help your business grow while maintaining compliance with PCI standards, please contact the DESA office at 866.430.2595 or e-mail us at <a href="mailto:pci@desasecurity.com">pci@desasecurity.com</a>.</p>
+              <p>For more information about the PCI requirements please visit <a href="http://www.mastercardsecurity.com/">www.mastercardsecurity.com</a> or <a href="http://www.visa.com/business">www.visa.com/business</a>.</p>
+              <p><em>PCI self-assessment quiz (PDF not available in archive)</em></p>
+            </div>
+          </div>
+
+          <!-- Security Training -->
+          <div id="sub-training" class="sub-section">
+            <div class="subsection">
+              <h2>Security Awareness Training</h2>
+              <p>Digital and technical security threats emerge exponentially as do digital myths and misinformation. DESA can provide your organization with the tools to help keep your employees informed and up to date on technology security issues. Dr. Jerald Dawkins, President and CEO of DESA, has developed the curriculum. Dr. Dawkins has published over twenty publications in information assurance and has provided security briefings to both private and governmental organizations. While studying for his M.S. and Ph.D. in computer science, Dr. Dawkins also co-instructed the Enterprise Security Management at the University of Tulsa. He has an extensive background in security research and continues to be on the cutting edge of theory and experience. His expertise has provided a very unique and engaging training program that provides easy to follow practices and instruction.</p>
+              <p>The class materials can either be provided to you to enable your trainers to lead a session or you can opt to have the class presented by one of DESA&rsquo;s highly skilled security team members. Additionally, a subscription is available providing you with an annual update to the security training materials. With the subscription you will also receive a quarterly newsletter addressing new topics to be aware of and giving you reminders and tips to provide to your employees.</p>
+              <p>Providing the training to your employees will help eliminate many questions regarding password security, what files to open or delete &mdash; ultimately saving your IT team time and your company money. Classes are typically one and a half hours and can be tailored to address specific company policies or concerns. Including many other topics, the class addresses these frequent security issues:</p>
+              <ul>
+                <li>Passwords and Privacy</li>
+                <li>E-mail and IM security</li>
+                <li>Viruses, worms and other related threats</li>
+                <li>Wireless threats</li>
+                <li>Safe web browsing</li>
+                <li>Identifying and reporting incidents</li>
+              </ul>
+              <p>Contact DESA to begin implementing a security training program to keep your organization up to date and in business.</p>
+            </div>
+          </div>
+
+        </div><!-- /.content-area -->
+      </div><!-- /#section-solutions -->
+
+      <!-- ===== NEWS ===== -->
+      <div id="section-news" class="page-section">
+        <div class="content-area">
+          <div class="subsection">
+            <h3>State Chamber Technology Council</h3>
+            <p>First Quarterly Meeting</p>
+            <p>Thursday, March 1st</p>
+            <p>Perimeter Technology Center &mdash; 322 E. Archer, Tulsa, OK</p>
+            <p>The meeting will begin at 4:00 p.m. with the Tech-Night-Out reception to follow from 5:15 - 7:00 p.m.</p>
+            <p>Speakers will include Dr. Jerald Dawkins, President and CEO of DESA, Inc.</p>
+            <p>For more information please contact the State Chamber.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PUBLICATIONS ===== -->
+      <div id="section-publications" class="page-section">
+
+        <!-- List -->
+        <div id="sub-pub-list" class="sub-section active">
+          <div class="content-area">
+            <div class="publication">
+              <h3>Depending on Information Technology</h3>
+              <h4>Dr. Jerald Dawkins</h4>
+              <p>Today, companies of all sizes depend on information technology (IT) to conduct business. These companies, while enjoying the benefits of modern technology, undoubtedly face some degree of turmoil in dealing with the complexity and involvedness of the technology.</p>
+              <a href="#" class="publication-more" onclick="showPubDetail('dependingonit'); return false;">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article detail -->
+        <div id="sub-pub-dependingonit" class="sub-section">
+          <div class="content-area">
+            <p class="back-link"><a href="#" onclick="showPubList(); return false;">&larr; Back to Publications</a></p>
+            <div class="publication">
+              <h3>Depending on Information Technology</h3>
+              <h4>Dr. Jerald Dawkins</h4>
+              <p>Outside my door, in the basement of an older office building, there is a room full of empty abandoned file cabinets. These cabinets, once the predominant means of storing a company&rsquo;s critical information, have been left behind and replaced by PCs and file servers. Once full of paper, now collecting dust, the file cabinet graveyard portrays the fundamental shift in the way companies are doing business.</p>
+              <p>Today, companies of all sizes depend on information technology (IT) to conduct business. These companies, while enjoying the benefits of modern technology, undoubtedly face some degree of turmoil in dealing with the complexity and involvedness of the technology. When it comes to securing their IT infrastructure, companies must tackle several challenges:</p>
+              <p><strong>Patch Management</strong></p>
+              <p>As new vulnerabilities are released daily, exploit developer&rsquo;s (e.g. hackers, crackers, and spam and worm authors) arsenals are continually reloaded. Effective patching of vulnerabilities is a key component to securing networks, yet difficult due to the growing number of vulnerabilities released; the Computer Emergency Response Team/Coordination Center (CERT/CC) reported 2874 vulnerabilities in the first half of 2005, an average of 15 per day. A single unpatched system can render an entire network susceptible to exploitation, leaving network administrators frustrated and helpless. Moreover, patch management isn&rsquo;t preemptive security so its value is limited; taking defensive measures to protect networks far exceeds fixing problems as they arise.</p>
+              <p><strong>Popular Applications</strong></p>
+              <p>Use of popular applications such as instant messaging and peer-to-peer networking technologies has increased in recent years. These seemingly harmless applications, AOL Instant Messenger, MSN Messenger, KaZaA, and Napster to name a few, can actually put networks at increased risk. Most transmit unencrypted messages and files, offer no controls for prevention of the transfer of copyrighted files (to include software, MP3s and photos), are susceptible to well-known buffer overflow attacks, and are targeted by viruses and worms.</p>
+              <p><strong>Users</strong></p>
+              <p>Every employee, and the information stored on his or her computer, is a potential target for any number of attacks. Spyware, viruses, and worms can be unintentionally downloaded, causing productivity and ultimately monetary loss. Deliberate attacks from both expert hackers as well as insiders seeking revenge or personal gain pose a real and unique threat that is difficult to mitigate.</p>
+              <p><strong>Compliance</strong></p>
+              <p>Entire industries are finding themselves federally mandated to make information security a top priority, e.g. HIPAA, Sarbanes Oxley, FISMA, and more. Intended to improve the security and accountability of companies, these provisions are often extensive, requiring substantial interpretation and often major modifications to business practices.</p>
+              <p><strong>Evolving Market</strong></p>
+              <p>New vulnerabilities, new hacker tools, new security products, and new software releases make IT an ever evolving market, one where it&rsquo;s nearly impossible to stay on the cutting edge. Experts with the knowledge and skill set required to undertake the challenges of security are desperately needed, but difficult to find and costly to hire and retain in today&rsquo;s job market. Finding security professionals with adequate training and breadth and depth of experience is essential. To a true security expert, analysis and resolution of network attacks should be an everyday occurrence.</p>
+              <p>Constantly faced with these challenges and others, network administrators struggle to keep pace. The risks are eminent and disaster unavoidable unless defense is properly implemented. Execution of this defense is a business necessity.</p>
+              <p>The good news is that help is on the way. The federal government has taken enormous strides in educating the general public about the concerns of IT security. Why does the government have such an interest in IT? Department of Homeland Security statistics reveal 85% of America&rsquo;s critical infrastructure is owned and controlled by private enterprise. In addition, the Department of Defense and the National Science Foundation have initiated grant programs for Universities, such as the University of Tulsa, to provide scholarships to students majoring in IT-related fields of study. The students learn skills such as vulnerability scanning, security monitoring, enterprise security risk assessment, network and host hardening, penetration testing, and forensics analysis. To supplement this knowledge, students are given unique employment opportunities with federal government agencies to apply their skill sets in protecting America&rsquo;s cyberspace. Security experts like these bring the knowledge and expertise required to undertake the most demanding security challenges in today&rsquo;s private industry.</p>
+              <p>When exploring security services for your company&rsquo;s IT infrastructure, remember that just as each company is different, its security needs are also unique, and must be treated as such. There is &ldquo;no one size fits all&rdquo; solution when it comes to network security. The need for security functions varies depending on company function, size, and budget. Customized, scalable solutions are crucial in appropriately protecting your IT infrastructure.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /#section-publications -->
+
+    </div><!-- /#holder -->
+    <div style="clear:both;"></div>
+  </div><!-- /#middle -->
+
+  <div id="footer">
+    <div id="footer-links">
+      <ul>
+        <li><a href="https://www.desasecurity.com/portal.php">client login</a> | </li>
+        <li><a href="mailto:info@desasecurity.com">contact us</a></li>
+      </ul>
+    </div>
+    <div id="footer-info">
+      DESA | PHONE 866-430-2595 | FAX 877-720-4030 | <a href="mailto:info@desasecurity.com">INFO@DESASECURITY.COM</a>
+    </div>
+  </div>
+
+</div><!-- /#wrapper -->
+
+<script>
+  var navItems = ['profile', 'team', 'solutions', 'news', 'publications'];
+  var subNavItems = ['netmon', 'assessments', 'pci', 'training'];
+  var currentSubSection = 'netmon';
+
+  function showSection(name) {
+    document.querySelectorAll('.page-section').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    var target = document.getElementById('section-' + name);
+    if (target) target.classList.add('active');
+
+    navItems.forEach(function(s) {
+      var li = document.getElementById('nav-li-' + s);
+      if (li) li.classList.remove('nav-active');
+    });
+    var activeLi = document.getElementById('nav-li-' + name);
+    if (activeLi) activeLi.classList.add('nav-active');
+
+    if (name === 'solutions') showSubSection(currentSubSection);
+    if (name === 'publications') showPubList();
+  }
+
+  function showSubSection(name) {
+    currentSubSection = name;
+    document.querySelectorAll('#section-solutions .sub-section').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    var target = document.getElementById('sub-' + name);
+    if (target) target.classList.add('active');
+
+    subNavItems.forEach(function(s) {
+      var li = document.getElementById('subnav-li-' + s);
+      if (li) li.classList.remove('subnav-active');
+    });
+    var activeLi = document.getElementById('subnav-li-' + name);
+    if (activeLi) activeLi.classList.add('subnav-active');
+  }
+
+  function showPubDetail(name) {
+    document.querySelectorAll('#section-publications .sub-section').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    var target = document.getElementById('sub-pub-' + name);
+    if (target) target.classList.add('active');
+  }
+
+  function showPubList() {
+    document.querySelectorAll('#section-publications .sub-section').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    document.getElementById('sub-pub-list').classList.add('active');
+  }
+</script>
+</body>
+</html>

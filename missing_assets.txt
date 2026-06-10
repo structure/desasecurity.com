@@ -1,0 +1,94 @@
+DESA Security Website - Missing Assets Summary
+Reconstructed from Wayback Machine snapshots (March 2007)
+=======================================================
+
+MISSING IMAGES
+--------------
+These images were referenced by the original site but were not captured
+in the downloaded archive pages:
+
+1. images/header.png
+   - Used as: Repeating background texture in the site header bar
+   - Referenced in: desa.css (#header background-image)
+   - Impact: Header shows as solid gray (#8c929a) instead of textured
+
+2. images/main_background.png
+   - Used as: Vertically-repeating sidebar decoration in the main content area
+   - Referenced in: desa.css (#middle background-image, repeat-y)
+   - Impact: Left sidebar area shows as plain white
+
+3. images/content_sidebar.gif
+   - Used as: Decorative sidebar accent positioned at top-left of content area
+   - Referenced in: subnav.css (#content background-image, 20px 25px no-repeat)
+   - Impact: Content area shows as plain white
+
+4. images/realtimealert.png (full-size)
+   - Used as: Full-size clickable version of the real-time alerts screenshot
+   - Referenced in: Solutions > Network Monitoring section (linked from thumbnail)
+   - Thumbnail (realtimealert.thumb.png) IS available locally
+
+5. images/incidentanalysis.png (full-size)
+   - Used as: Full-size clickable version of the incident analysis screenshot
+   - Referenced in: Solutions > Network Monitoring section (linked from thumbnail)
+   - Thumbnail (incidentanalysis.thumb.png) IS available locally
+
+6. images/samplereport.png (full-size)
+   - Used as: Full-size clickable version of the sample monthly report screenshot
+   - Referenced in: Solutions > Network Monitoring section (linked from thumbnail)
+   - Thumbnail (samplereport.thumb.png) IS available locally
+
+7. images/assessments.png (full-size)
+   - Used as: Full-size version of the security assessment image
+   - Referenced in: Solutions > Security Assessment section (linked from thumbnail)
+   - Thumbnail (assessments.thumb.png) IS available locally
+
+8. images/pci-report.png (full-size)
+   - Used as: Full-size clickable version of the PCI compliance report screenshot
+   - Referenced in: Solutions > PCI Compliance section
+   - Impact: Image removed from reconstruction; noted as unavailable in page text
+   - Thumbnail (pci-report.thumb.png) was also NOT captured
+
+9. images/secassessment_on.gif
+   - Used as: "Active/on" state button image for Security Assessment sub-navigation tab
+   - Referenced in: Solutions > Security Assessment sub-nav
+   - Impact: Active state indicated by CSS opacity instead
+
+10. images/pcicompliance_on.gif
+    - Used as: "Active/on" state button image for PCI Compliance sub-navigation tab
+    - Referenced in: Solutions > PCI Compliance sub-nav
+    - Impact: Active state indicated by CSS opacity instead
+
+11. images/sectraining_off.gif (also: netmonitoring_off variant)
+    - Used as: "Off/inactive" state button for Security Training sub-navigation tab
+    - Was referenced in solutions page asset folder but not captured
+    - Impact: The "on" state image (sectraining_on.gif) IS available and is used for all states;
+      active state indicated by CSS opacity
+
+MISSING PAGES / URLS
+--------------------
+These pages were linked in the original site but were not captured in the archive:
+
+1. /portal.php  (https://www.desasecurity.com/portal.php)
+   - Used as: "Client Login" link in footer
+   - Description: Secure client portal requiring authentication
+   - Status: Not archived; footer link preserved as-is
+
+2. /index.php?p=contact
+   - Used as: "Contact Us" link in footer navigation
+   - Description: Contact form/information page
+   - Status: Not captured in archive; replaced with mailto link in footer
+
+3. /pci_self_assmnt_qust.pdf
+   - Used as: Downloadable PCI self-assessment quiz PDF
+   - Referenced in: Solutions > PCI Compliance section
+   - Status: Not captured; link preserved pointing to web_archive1/ folder
+
+NOTES
+-----
+- All text content was fully recovered from the archived pages
+- All navigation button images (profile, team, solutions, news, publications) are present
+- Logo and logo reflection images are present
+- All content thumbnail images for Network Monitoring (3) and Security Assessment (1) are present
+- The "Depending on Information Technology" article by Dr. Jerald Dawkins is fully preserved
+- Navigation "on" state images for the main left-nav were not separately captured;
+  active state is indicated in the reconstructed site using a CSS outline effect
